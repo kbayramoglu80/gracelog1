@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gracelog Logistics &mdash; We Always Find A Way</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700"> 
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      /* Mavi-Beyaz Tema */
+      :root {
+        --primary-blue: #667eea;
+        --secondary-blue: #764ba2;
+        --light-blue: #e3f2fd;
+        --white: #ffffff;
+        --dark-blue: #1a237e;
+      }
+      
+      body {
+        background-color: #f8f9fa;
+      }
+      
+      .text-primary {
+        color: #5c7287 !important;
+      }
+      
+      .btn-primary {
+        background-color: #667eea;
+        border-color: #667eea;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-primary:hover {
+        background-color: #5568d3;
+        border-color: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+      
+      .bg-primary {
+        background-color: #667eea !important;
+      }
+      
+      .border-primary {
+        border-color: #667eea !important;
+      }
+      
+      .site-section {
+        background-color: #ffffff;
+      }
+      
+      .site-section.bg-light {
+        background-color: #f0f4ff !important;
+      }
+      
+      .site-navbar {
+        background: linear-gradient(1deg, #ffffff 0%, #d7d7d7 100%) !important;
+      }
+      
+      .feature-1, .feature-3 {
+        background-color: #1e1f3b;
+        border: 2px solid #e3f2fd;
+      }
+      
+      .unit-4 {
+        transition: all 0.3s ease;
+      }
+      
+      .unit-4:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        border-color: #667eea !important;
+      }
+      
+      /* Profesyonel Hizmetler Grid */
+      .service-card-modern {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      
+      .service-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      .service-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .service-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+        transition: opacity 0.4s ease;
+      }
+      
+      .service-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 35px 30px;
+        z-index: 2;
+        color: #ffffff;
+      }
+      
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #ffffff;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        line-height: 1.3;
+      }
+      
+      .service-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .service-card-modern:hover .service-image {
+        transform: scale(1.08);
+      }
+      
+      .service-card-modern:hover .service-title {
+        font-size: 1.75rem;
+        transform: translateY(-5px);
+      }
+      
+      .service-card-modern:hover .service-description {
+        font-size: 1.05rem;
+        transform: translateY(-3px);
+      }
+      
+      .service-card-modern:hover .service-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+      }
+      
+      .service-button-wrapper {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        z-index: 3;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .service-button {
+        display: inline-block;
+        padding: 12px 28px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #1e1f3b;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .service-button:hover {
+        background: #ffffff;
+        color: #667eea;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+      }
+      
+      .service-card-modern:hover .service-button-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      @media (max-width: 768px) {
+        .service-card-modern {
+          height: 400px;
+        }
+        
+        .service-content {
+          padding: 25px 20px;
+        }
+        
+        .service-title {
+          font-size: 1.3rem;
+        }
+        
+        .service-description {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-11 col-xl-3">
+            <div class="logo">
+              <a href="index-en.html">
+                <img src="images/WhatsApp Görsel 2025-10-28 saat 20.10.20_4af858e2-Photoroom.png" alt="Gracelog" style="height: 50px; width: auto;">
+              </a>
+            </div>
+          </div>
+          <div class="col-12 col-md-9 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block" style="font-size: 14px;">
+                <li class="active"><a href="index-en.html">Home</a></li>
+                <li><a href="about-en.html">About Us</a></li>
+                <li class="has-children">
+                  <a href="services-en.html">Services</a>
+                  <ul class="dropdown">
+                    <li><a href="air-freight-en.html">Air Freight</a></li>
+                    <li><a href="road-transportation-en.html">Road Transportation</a></li>
+                    <li><a href="sea-freight-en.html">Ocean Freight</a></li>
+                    <li><a href="warehousing-services-en.html">Warehousing Services</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="#">Corporate</a>
+                  <ul class="dropdown">
+                    <li><a href="board-of-directors-message-en.html">Board of Directors Message</a></li>
+                    <li><a href="industry-insights-en.html">Industry Insights</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="#">Tools</a>
+                  <ul class="dropdown">
+                    <li><a href="cbm-calculator-en.html">CBM Calculator</a></li>
+                    <li><a href="quote-en.html">Get Quote</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact-en.html">Contact</a></li>
+                <li><a href="index.html">TR</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+      
+    </header>
+
+    <div class="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5" style="position: relative; overflow: hidden;">
+      <video autoplay muted loop playsinline preload="metadata" src="Grace Logistics (4).mp4" style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform: translate(-50%, -50%) scale(1.2);display:block;"></video>
+      <div class="container-fluid p-0" style="position: relative; z-index: 2;">
+        <div class="row align-items-center justify-content-center text-center">
+
+          <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+            
+            <h1 class="text-white font-weight-light mb-5 text-uppercase font-weight-bold">Delivering Solutions Beyond Expectations</h1>
+            <p class="text-white mb-4">Reliable logistics solutions serving worldwide</p>
+            <p><a href="#" class="btn btn-primary py-3 px-5 text-white">Get Quote!</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="container">
+      <div class="row align-items-center no-gutters align-items-stretch overlap-section">
+        <div class="col-md-4">
+          <div class="feature-1 pricing h-100 text-center">
+            <div class="icon">
+              <span class="icon-dollar"></span>
+            </div>
+            <h2 class="my-4 heading">Best Prices</h2>
+            <p>We offer quality logistics services with competitive prices. Customer satisfaction is our priority.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="free-quote bg-dark h-100">
+            <h2 class="my-4 heading  text-center">Get Free Quote</h2>
+            <form id="quickQuoteForm" method="post">
+              <div class="form-group">
+                <label for="fq_name">Full Name</label>
+                <input type="text" class="form-control btn-block" id="fq_name" name="fq_name" placeholder="Enter Your Name" required>
+              </div>
+              <div class="form-group mb-4">
+                <label for="fq_email">Email</label>
+                <input type="email" class="form-control btn-block" id="fq_email" name="fq_email" placeholder="Enter Your Email" required>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary text-white py-2 px-4 btn-block" value="Get Quote">  
+              </div>
+              <div id="quickQuoteMessage" style="display:none; margin-top:10px; padding:10px; border-radius:5px;"></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-3 pricing h-100 text-center">
+            <div class="icon">
+              <span class="icon-phone"></span>
+            </div>
+            <h2 class="my-4 heading">24/7 Support</h2>
+            <p>We provide uninterrupted service 24/7 with our expert team. We are always by your side.</p>
+          </div>
+        </div>
+      </div>
+    </div>    
+<div class="site-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="mb-0 text-primary">Our Services</h2>
+            <p style="color: #5c7287;">We offer professional logistics solutions</p>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="unit-4 text-center h-100 p-4 border rounded">
+              <div class="unit-4-icon mb-3"><span class="text-primary flaticon-travel" style="font-size: 3rem;"></span></div>
+              <div class="service-number text-muted small mb-2">01</div>
+              <h4 class="mb-3">Air Transportation</h4>
+              <p class="mb-3">Fast and secure air cargo services delivering your shipments worldwide on time.</p>
+              <a href="air-freight-en.html" class="btn btn-outline-primary btn-sm">LEARN MORE</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="unit-4 text-center h-100 p-4 border rounded">
+              <div class="unit-4-icon mb-3"><span class="text-primary flaticon-sea-ship-with-containers" style="font-size: 3rem;"></span></div>
+              <div class="service-number text-muted small mb-2">02</div>
+              <h4 class="mb-3">Sea Transportation</h4>
+              <p class="mb-3">Economical sea freight transportation for your large volume shipments worldwide.</p>
+              <a href="sea-freight-en.html" class="btn btn-outline-primary btn-sm">LEARN MORE</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="unit-4 text-center h-100 p-4 border rounded">
+              <div class="unit-4-icon mb-3"><span class="text-primary flaticon-frontal-truck" style="font-size: 3rem;"></span></div>
+              <div class="service-number text-muted small mb-2">03</div>
+              <h4 class="mb-3">Road Transportation</h4>
+              <p class="mb-3">Door-to-door delivery service for domestic and international ground transportation.</p>
+              <a href="road-transportation-en.html" class="btn btn-outline-primary btn-sm">LEARN MORE</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="unit-4 text-center h-100 p-4 border rounded">
+              <div class="unit-4-icon mb-3"><span class="text-primary flaticon-barn" style="font-size: 3rem;"></span></div>
+              <div class="service-number text-muted small mb-2">04</div>
+              <h4 class="mb-3">Warehousing Services</h4>
+              <p class="mb-3">We safely store your goods in controlled environments in our modern warehouse facilities.</p>
+              <a href="warehousing-services-en.html" class="btn btn-outline-primary btn-sm">LEARN MORE</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <!-- Statistics Section -->
+  <div class="site-section bg-light" style="padding: 80px 0; background-color: #f8f9fa;">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+          <h2 class="text-primary mb-3" style="font-size: 2.2rem; font-weight: 600; letter-spacing: -0.5px;">Powered by Strong Numbers</h2>
+          <p class="text-muted" style="font-size: 1rem; color: #5c7287;">Reliable logistics partner worldwide</p>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="50" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Countries Operations</p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="550" data-suffix="K" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Tons Storage</p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="287" data-suffix="K" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Tons Transport</p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="830" data-suffix="+" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Vehicle Fleet</p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="148" data-suffix="K" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Route Points</p>
+          </div>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <div class="stat-card-modern p-4" style="background: #ffffff; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.3s ease; height: 100%;">
+            <h3 class="stat-number text-primary font-weight-bold mb-3" data-target="3500" data-suffix="+" style="font-size: 3rem; font-weight: 700; margin: 0; line-height: 1.2;">0</h3>
+            <p class="small text-muted mb-0" style="font-size: 0.9rem; color: #5c7287; font-weight: 500;">Expert Employees</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .stat-card-modern:hover {
+        transform: translateY(-5px);
+        border-color: #667eea !important;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+      }
+      
+      .stat-number {
+        transition: all 0.5s ease;
+      }
+    </style>
+
+    <script>
+      // Sayı Animasyonu
+      function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          
+          element.textContent = Math.floor(current) + suffix;
+        }, 16);
+      }
+      
+      // Intersection Observer ile görünür olduğunda animasyonu başlat
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.stat-number');
+            statNumbers.forEach((stat, index) => {
+              setTimeout(() => {
+                animateCounter(stat);
+              }, index * 150);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Sayfa yüklendiğinde observer'ı başlat
+      document.addEventListener('DOMContentLoaded', function() {
+        const statsSection = document.querySelector('.site-section.bg-light');
+        if (statsSection && statsSection.querySelector('.stat-number')) {
+          observer.observe(statsSection);
+        }
+      });
+    </script>
+  </div>
+
+  <div class="site-section block-13"></div>
+  
+  <!-- Professional Services Grid -->
+  <div class="site-section" style="padding: 0;">
+    <div class="container-fluid px-0">
+      <div class="row no-gutters">
+        <div class="col-md-3 col-sm-6">
+          <div class="service-card-modern">
+            <div class="service-image-wrapper">
+              <img src="images/img_2.jpg" alt="Air Transportation" class="service-image">
+              <div class="service-overlay"></div>
+              <div class="service-button-wrapper">
+                <a href="air-freight-en.html" class="service-button">Details</a>
+              </div>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Air Transportation</h3>
+              <p class="service-description">Fast and secure air cargo services delivering your shipments worldwide on time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="service-card-modern">
+            <div class="service-image-wrapper">
+              <img src="images/img_4.jpg" alt="Sea Transportation" class="service-image">
+              <div class="service-overlay"></div>
+              <div class="service-button-wrapper">
+                <a href="sea-freight-en.html" class="service-button">Details</a>
+              </div>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Sea Transportation</h3>
+              <p class="service-description">Economical sea freight transportation for your large volume shipments worldwide.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="service-card-modern">
+            <div class="service-image-wrapper">
+              <img src="images/img_3.jpg" alt="Road Transportation" class="service-image">
+              <div class="service-overlay"></div>
+              <div class="service-button-wrapper">
+                <a href="road-transportation-en.html" class="service-button">Details</a>
+              </div>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Road Transportation</h3>
+              <p class="service-description">Door-to-door delivery service for domestic and international ground transportation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="service-card-modern">
+            <div class="service-image-wrapper">
+              <img src="images/img_1.jpg" alt="Warehousing Services" class="service-image">
+              <div class="service-overlay"></div>
+              <div class="service-button-wrapper">
+                <a href="warehousing-services-en.html" class="service-button">Details</a>
+              </div>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Warehousing Services</h3>
+              <p class="service-description">We safely store your goods in our modern warehouse facilities. Controlled environmental conditions with quality guarantee.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url(images/hero_bg_2.jpg); background-attachment: fixed;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
+            <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
+            <h2 class="text-white font-weight-light mb-5 h1">Explore Our Services By Watching This Short Video</h2>
+            
+          </div>
+        </div>
+      </div>
+    </div>  
+    
+
+    
+    <div class="site-section border-top">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h2 class="mb-5 text-black">Try Our Services</h2>
+            <p class="mb-0"><a href="contact-en.html" class="btn btn-primary py-3 px-5 text-white">Get Started</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Grace Logistics Info Section -->
+  <div class="site-section bg-light" style="padding: 60px 0; background-color: #f8f9fa;">
+    <div class="container">
+      <div class="row">
+        <!-- Grace Logistics -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Grace Logistics</h2>
+          <p style="color: #6c757d; line-height: 1.8; font-size: 0.95rem;">
+            Grace Logistics is an Istanbul-based, strong and reliable international logistics company. With 15 years of experience, the company has built its entire staff from professionals. It continuously expands the infrastructure and transportation networks that can respond to rapidly changing and developing logistics needs.
+          </p>
+        </div>
+
+        <!-- Our Services -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Our Services</h2>
+          <ul class="list-unstyled" style="color: #6c757d; line-height: 2.2;">
+            <li><a href="air-freight-en.html" style="color: #6c757d; text-decoration: none;">Air Freight</a></li>
+            <li><a href="sea-freight-en.html" style="color: #6c757d; text-decoration: none;">Ocean Freight</a></li>
+            <li><a href="road-transportation-en.html" style="color: #6c757d; text-decoration: none;">Road Transportation</a></li>
+            <li><a href="warehousing-services-en.html" style="color: #6c757d; text-decoration: none;">Warehousing Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Memberships -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Our Memberships</h2>
+          <div class="mb-3">
+            <div style="border: 2px solid #dee2e6; padding: 15px; background: #fff; border-radius: 5px; margin-bottom: 15px; text-align: center;">
+              <img src="images/GLA-213x300.jpg" alt="GLA Certificate" style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 5px;">
+            </div>
+            <div style="text-align: center;">
+              <img src="images/TioLogo-150x150-1.png" alt="TİO Logo" style="max-width: 120px; height: auto;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Head Office -->
+        <div class="col-md-3">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Head Office</h2>
+          <div style="color: #6c757d; line-height: 1.8; font-size: 0.95rem; margin-bottom: 20px;">
+            <p style="margin-bottom: 10px;">
+              <strong>Address:</strong><br>
+              Collet Avcılar B2 Blok No 85 Firuzkoy Mah<br>
+              Avcılar/Istanbul/TURKEY
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>Phone:</strong><br>
+              <a href="tel:+902128900250" style="color: #6c757d; text-decoration: none;">+90 212 890 02 50</a><br>
+              <a href="tel:+905447923408" style="color: #6c757d; text-decoration: none;">+90 544 792 34 08</a>
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>Email:</strong><br>
+              <a href="mailto:operation@gracelogistics.com.tr" style="color: #6c757d; text-decoration: none;">operation@gracelogistics.com.tr</a><br>
+              <a href="mailto:pricing@gracelogistics.com.tr" style="color: #6c757d; text-decoration: none;">pricing@gracelogistics.com.tr</a>
+            </p>
+          </div>
+          <div style="width: 100%; height: 200px; border: 1px solid #dee2e6; border-radius: 5px; overflow: hidden;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.1234567890!2d28.7123456!3d41.0123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzQ0LjQiTiAyOMKwNDInNDQuNCJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str" 
+              width="100%" 
+              height="200" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Quick Quote Form Handler
+    document.getElementById('quickQuoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('fq_name').value.trim();
+      const email = document.getElementById('fq_email').value.trim();
+      const messageDiv = document.getElementById('quickQuoteMessage');
+      
+      if (!name || !email) {
+        messageDiv.style.display = 'block';
+        messageDiv.className = 'alert alert-danger';
+        messageDiv.textContent = 'Please fill in all fields.';
+        return;
+      }
+      
+      try {
+        const response = await fetch('/api/quick-quote', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            language: 'en'
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          messageDiv.style.display = 'block';
+          messageDiv.className = 'alert alert-success';
+          messageDiv.textContent = 'Your quote request has been submitted successfully! We will contact you soon.';
+          document.getElementById('quickQuoteForm').reset();
+          setTimeout(() => {
+            messageDiv.style.display = 'none';
+          }, 5000);
+        } else {
+          messageDiv.style.display = 'block';
+          messageDiv.className = 'alert alert-danger';
+          messageDiv.textContent = 'An error occurred. Please try again.';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        messageDiv.style.display = 'block';
+        messageDiv.className = 'alert alert-danger';
+        messageDiv.textContent = 'Connection error. Please try again.';
+      }
+    });
+  </script>
+    
+  </body>
+</html>

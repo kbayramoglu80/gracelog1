@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracelog Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .main-content {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-quoted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-accepted {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-new {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .status-read {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-replied {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar">
+                <div class="p-3">
+                    <h4 class="text-white mb-4">
+                        <i class="fas fa-shipping-fast me-2"></i>
+                        Gracelog Admin
+                    </h4>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#" onclick="showSection('dashboard')">
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            Dashboard
+                        </a>
+                        <a class="nav-link" href="#" onclick="showSection('quotes')">
+                            <i class="fas fa-file-invoice me-2"></i>
+                            Teklif Talepleri
+                        </a>
+                        <a class="nav-link" href="#" onclick="showSection('contacts')">
+                            <i class="fas fa-envelope me-2"></i>
+                            İletişim Mesajları
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <div class="p-4">
+                    <!-- Dashboard Section -->
+                    <div id="dashboard-section" class="content-section">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2>Dashboard</h2>
+                            <button class="btn btn-primary" onclick="refreshStats()">
+                                <i class="fas fa-sync-alt me-2"></i>Yenile
+                            </button>
+                        </div>
+
+                        <!-- Statistics Cards -->
+                        <div class="row mb-4" id="stats-container">
+                            <div class="col-md-6 mb-3">
+                                <div class="stat-card text-center">
+                                    <i class="fas fa-file-invoice fa-3x text-primary mb-3"></i>
+                                    <div class="stat-number" id="total-quotes">-</div>
+                                    <div class="text-muted">Toplam Teklif Talebi</div>
+                                    <small class="text-success" id="quotes-today">Bugün: -</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="stat-card text-center">
+                                    <i class="fas fa-envelope fa-3x text-warning mb-3"></i>
+                                    <div class="stat-number" id="total-contacts">-</div>
+                                    <div class="text-muted">İletişim Mesajları</div>
+                                    <small class="text-success" id="contacts-today">Bugün: -</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="table-container">
+                                    <h5 class="mb-3">Son Teklif Talepleri</h5>
+                                    <div id="recent-quotes"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="table-container">
+                                    <h5 class="mb-3">Durum Dağılımı</h5>
+                                    <div id="status-distribution"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quotes Section -->
+                    <div id="quotes-section" class="content-section" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2>Teklif Talepleri</h2>
+                            <div class="d-flex gap-2">
+                                <select class="form-select" id="quotes-status-filter" onchange="loadQuotes()">
+                                    <option value="">Tüm Durumlar</option>
+                                    <option value="pending">Beklemede</option>
+                                    <option value="processing">İşleniyor</option>
+                                    <option value="quoted">Teklif Verildi</option>
+                                    <option value="accepted">Kabul Edildi</option>
+                                    <option value="rejected">Reddedildi</option>
+                                </select>
+                                <input type="text" class="form-control" id="quotes-search" placeholder="Ara..."
+                                    onkeyup="searchQuotes()">
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <div class="loading" id="quotes-loading">
+                                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                                <p>Yükleniyor...</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Referans No</th>
+                                            <th>Müşteri</th>
+                                            <th>Hizmet</th>
+                                            <th>Güzergah</th>
+                                            <th>Durum</th>
+                                            <th>Tarih</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="quotes-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav id="quotes-pagination"></nav>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Contacts Section -->
+                    <div id="contacts-section" class="content-section" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2>İletişim Mesajları</h2>
+                            <div class="d-flex gap-2">
+                                <select class="form-select" id="contacts-formtype-filter" onchange="loadContacts()">
+                                    <option value="">Tüm Formlar</option>
+                                    <option value="contact">İletişim</option>
+                                    <option value="quick_quote">Hızlı Teklif</option>
+                                </select>
+                                <select class="form-select" id="contacts-status-filter" onchange="loadContacts()">
+                                    <option value="">Tüm Durumlar</option>
+                                    <option value="new">Yeni</option>
+                                    <option value="read">Okundu</option>
+                                    <option value="replied">Yanıtlandı</option>
+                                    <option value="closed">Kapatıldı</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <div class="loading" id="contacts-loading">
+                                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                                <p>Yükleniyor...</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Ad</th>
+                                            <th>E-posta</th>
+                                            <th>Konu/Tip</th>
+                                            <th>Tip/Durum</th>
+                                            <th>Tarih</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contacts-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav id="contacts-pagination"></nav>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Detail Modal -->
+    <div class="modal fade" id="quoteDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Teklif Detayları</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="quote-detail-content">
+                </div>
+                <div class="modal-footer">
+                    <select class="form-select me-2" id="quote-status-select" style="width: auto;">
+                        <option value="pending">Beklemede</option>
+                        <option value="processing">İşleniyor</option>
+                        <option value="quoted">Teklif Verildi</option>
+                        <option value="accepted">Kabul Edildi</option>
+                        <option value="rejected">Reddedildi</option>
+                    </select>
+                    <button type="button" class="btn btn-primary" onclick="updateQuoteStatus()">Durumu Güncelle</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentQuoteId = null;
+        let currentPage = 1;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            showSection('dashboard');
+            refreshStats();
+        });
+
+        // Navigation
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+
+            // Load data for section
+            switch (section) {
+                case 'dashboard':
+                    refreshStats();
+                    break;
+                case 'quotes':
+                    loadQuotes();
+                    break;
+                case 'contacts':
+                    loadContacts();
+                    break;
+            }
+        }
+
+        // Dashboard Functions
+        async function refreshStats() {
+            try {
+                const response = await fetch('/api/dashboard/stats');
+                const stats = await response.json();
+
+                document.getElementById('total-quotes').textContent = stats.quotes.total;
+                document.getElementById('quotes-today').textContent = `Bugün: ${stats.quotes.today}`;
+
+                document.getElementById('total-contacts').textContent = stats.contacts.total;
+                document.getElementById('contacts-today').textContent = `Bugün: ${stats.contacts.today}`;
+
+                // Load recent quotes
+                loadRecentQuotes();
+                loadStatusDistribution(stats.quotes);
+
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        async function loadRecentQuotes() {
+            try {
+                const response = await fetch('/api/quotes?limit=5');
+                const data = await response.json();
+
+                const container = document.getElementById('recent-quotes');
+                container.innerHTML = data.quotes.map(quote => `
+                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                        <div>
+                            <strong>${quote.referenceNo}</strong><br>
+                            <small class="text-muted">${quote.firstName} ${quote.lastName}</small>
+                        </div>
+                        <span class="status-badge status-${quote.status}">${getStatusText(quote.status)}</span>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                console.error('Error loading recent quotes:', error);
+            }
+        }
+
+        function loadStatusDistribution(quotesStats) {
+            const container = document.getElementById('status-distribution');
+            container.innerHTML = `
+                <div class="row text-center">
+                    <div class="col-6 mb-2">
+                        <div class="bg-warning bg-opacity-25 p-2 rounded">
+                            <strong>${quotesStats.pending}</strong><br>
+                            <small>Beklemede</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <div class="bg-info bg-opacity-25 p-2 rounded">
+                            <strong>${quotesStats.processing}</strong><br>
+                            <small>İşleniyor</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <div class="bg-success bg-opacity-25 p-2 rounded">
+                            <strong>${quotesStats.quoted}</strong><br>
+                            <small>Teklif Verildi</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <div class="bg-secondary bg-opacity-25 p-2 rounded">
+                            <strong>${quotesStats.total - quotesStats.pending - quotesStats.processing - quotesStats.quoted}</strong><br>
+                            <small>Diğer</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Quotes Functions
+        async function loadQuotes(page = 1) {
+            const loading = document.getElementById('quotes-loading');
+            const tbody = document.getElementById('quotes-table-body');
+
+            loading.style.display = 'block';
+
+            try {
+                const status = document.getElementById('quotes-status-filter').value;
+                const search = document.getElementById('quotes-search').value;
+
+                let url = `/api/quotes?page=${page}&limit=10`;
+                if (status) url += `&status=${status}`;
+                if (search) url += `&search=${encodeURIComponent(search)}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                tbody.innerHTML = data.quotes.map(quote => `
+                    <tr>
+                        <td><strong>${quote.referenceNo}</strong></td>
+                        <td>${quote.firstName} ${quote.lastName}<br><small class="text-muted">${quote.email}</small></td>
+                        <td>${getServiceTypeText(quote.serviceType)}</td>
+                        <td>${quote.originCity}, ${quote.originCountry} → ${quote.destCity}, ${quote.destCountry}</td>
+                        <td><span class="status-badge status-${quote.status}">${getStatusText(quote.status)}</span></td>
+                        <td>${new Date(quote.createdAt).toLocaleDateString('tr-TR')}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="showQuoteDetail('${quote._id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+
+                // Update pagination
+                updatePagination('quotes', data.currentPage, data.totalPages);
+
+            } catch (error) {
+                console.error('Error loading quotes:', error);
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center text-danger">Veri yüklenirken hata oluştu</td></tr>';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        async function showQuoteDetail(quoteId) {
+            try {
+                const response = await fetch(`/api/quotes`);
+                const data = await response.json();
+                const quote = data.quotes.find(q => q._id === quoteId);
+
+                if (!quote) return;
+
+                currentQuoteId = quoteId;
+
+                const content = document.getElementById('quote-detail-content');
+                content.innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Kişisel Bilgiler</h6>
+                            <p><strong>Ad Soyad:</strong> ${quote.firstName} ${quote.lastName}</p>
+                            <p><strong>E-posta:</strong> ${quote.email}</p>
+                            <p><strong>Telefon:</strong> ${quote.phone}</p>
+                            <p><strong>Şirket:</strong> ${quote.company || 'Belirtilmemiş'}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Gönderi Bilgisi</h6>
+                            <p><strong>Taşıma Yolu:</strong> ${getServiceTypeText(quote.serviceType)}</p>
+                            <p><strong>Incoterms:</strong> ${quote.incoterms || 'Belirtilmemiş'}</p>
+                            <p><strong>Güzergah:</strong> ${quote.originCity}, ${quote.originCountry} → ${quote.destCity}, ${quote.destCountry}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h6>Yük Bilgileri</h6>
+                            <p><strong>Toplam Ağırlık:</strong> ${quote.totalWeight} kg</p>
+                            <p><strong>Toplam CBM:</strong> ${quote.totalCBM || 'Belirtilmemiş'} m³</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Özellikler</h6>
+                            ${Object.entries(quote.additionalServices || {}).map(([key, value]) =>
+                    value ? `<span class="badge bg-success me-1 mb-1">${getServiceText(key)}</span>` : ''
+                ).join('') || '<span class="text-muted">Özellik seçilmemiş</span>'}
+                        </div>
+                    </div>
+                    ${quote.notes ? `
+                        <div class="mt-3">
+                            <h6>Ek Bilgiler / Notlar</h6>
+                            <p>${quote.notes}</p>
+                        </div>
+                    ` : ''}
+                `;
+
+                document.getElementById('quote-status-select').value = quote.status;
+
+                const modal = new bootstrap.Modal(document.getElementById('quoteDetailModal'));
+                modal.show();
+
+            } catch (error) {
+                console.error('Error loading quote detail:', error);
+            }
+        }
+
+        async function updateQuoteStatus() {
+            if (!currentQuoteId) return;
+
+            const newStatus = document.getElementById('quote-status-select').value;
+
+            try {
+                const response = await fetch(`/api/quotes/${currentQuoteId}/status`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status: newStatus })
+                });
+
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('quoteDetailModal')).hide();
+                    loadQuotes(currentPage);
+                    refreshStats();
+                }
+
+            } catch (error) {
+                console.error('Error updating quote status:', error);
+            }
+        }
+
+        function searchQuotes() {
+            clearTimeout(window.searchTimeout);
+            window.searchTimeout = setTimeout(() => {
+                loadQuotes(1);
+            }, 500);
+        }
+
+        // CBM Calculations Functions
+        async function loadCalculations(page = 1) {
+            const loading = document.getElementById('calculations-loading');
+            const tbody = document.getElementById('calculations-table-body');
+
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch(`/api/cbm-calculations?page=${page}&limit=10`);
+                const data = await response.json();
+
+                tbody.innerHTML = data.calculations.map(calc => `
+                    <tr>
+                        <td>${calc.sessionId.substring(0, 10)}...</td>
+                        <td><span class="badge bg-info">${calc.calculationType === 'single' ? 'Tek Koli' : 'Çoklu Koli'}</span></td>
+                        <td>${calc.results?.totalCBM?.toFixed(4) || 'N/A'} m³</td>
+                        <td>${calc.results?.totalWeight?.toFixed(2) || 'N/A'} kg</td>
+                        <td>${calc.results?.boxCount || 'N/A'}</td>
+                        <td>${new Date(calc.createdAt).toLocaleDateString('tr-TR')}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="showCBMDetail('${calc._id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+
+                updatePagination('calculations', data.currentPage, data.totalPages);
+
+            } catch (error) {
+                console.error('Error loading calculations:', error);
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center text-danger">Veri yüklenirken hata oluştu</td></tr>';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Contacts Functions
+        async function loadContacts(page = 1) {
+            const loading = document.getElementById('contacts-loading');
+            const tbody = document.getElementById('contacts-table-body');
+
+            loading.style.display = 'block';
+
+            try {
+                const status = document.getElementById('contacts-status-filter').value;
+                const formType = document.getElementById('contacts-formtype-filter').value;
+                let url = `/api/contacts?page=${page}&limit=10`;
+                if (status) url += `&status=${status}`;
+                if (formType) url += `&formType=${formType}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                tbody.innerHTML = data.contacts.map(contact => `
+                    <tr>
+                        <td>${contact.name}</td>
+                        <td>${contact.email}</td>
+                        <td>${contact.subject || (contact.formType === 'quick_quote' ? 'Hızlı Teklif' : 'Konu belirtilmemiş')}</td>
+                        <td>
+                            <span class="badge bg-info me-1">${contact.formType === 'quick_quote' ? 'Hızlı Teklif' : 'İletişim'}</span>
+                            <span class="status-badge status-${contact.status}">${getContactStatusText(contact.status)}</span>
+                        </td>
+                        <td>${new Date(contact.createdAt).toLocaleDateString('tr-TR')}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="showContactDetail('${contact._id}', '${contact.message || ''}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+
+                updatePagination('contacts', data.currentPage, data.totalPages);
+
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center text-danger">Veri yüklenirken hata oluştu</td></tr>';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function showContactDetail(contactId, message) {
+            alert('Mesaj: ' + (message || 'Mesaj yok'));
+        }
+
+        // Newsletter Functions
+        async function loadNewsletter() {
+            const loading = document.getElementById('newsletter-loading');
+            const tbody = document.getElementById('newsletter-table-body');
+
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/newsletter');
+                const data = await response.json();
+
+                tbody.innerHTML = data.subscribers?.map(subscriber => `
+                    <tr>
+                        <td>${subscriber.email}</td>
+                        <td><span class="badge bg-success">${subscriber.status}</span></td>
+                        <td>${subscriber.language.toUpperCase()}</td>
+                        <td>${new Date(subscriber.createdAt).toLocaleDateString('tr-TR')}</td>
+                    </tr>
+                `).join('') || '<tr><td colspan="4" class="text-center">Henüz abone yok</td></tr>';
+
+            } catch (error) {
+                console.error('Error loading newsletter:', error);
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center text-danger">Veri yüklenirken hata oluştu</td></tr>';
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Utility Functions
+        function updatePagination(section, currentPage, totalPages) {
+            const container = document.getElementById(`${section}-pagination`);
+            if (totalPages <= 1) {
+                container.innerHTML = '';
+                return;
+            }
+
+            let pagination = '<ul class="pagination justify-content-center">';
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="load${section.charAt(0).toUpperCase() + section.slice(1)}(${i})">${i}</a>
+                    </li>
+                `;
+            }
+
+            pagination += '</ul>';
+            container.innerHTML = pagination;
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'pending': 'Beklemede',
+                'processing': 'İşleniyor',
+                'quoted': 'Teklif Verildi',
+                'accepted': 'Kabul Edildi',
+                'rejected': 'Reddedildi'
+            };
+            return statusMap[status] || status;
+        }
+
+        function getContactStatusText(status) {
+            const statusMap = {
+                'new': 'Yeni',
+                'read': 'Okundu',
+                'replied': 'Yanıtlandı',
+                'closed': 'Kapatıldı'
+            };
+            return statusMap[status] || status;
+        }
+
+        function getServiceTypeText(type) {
+            const typeMap = {
+                'air': 'Havayolu',
+                'sea': 'Denizyolu',
+                'road': 'Karayolu',
+                'multimodal': 'Kombine Taşımacılık'
+            };
+            return typeMap[type] || type;
+        }
+
+        function getServiceText(service) {
+            const serviceMap = {
+                'fragile': 'Kırılgan',
+                'express': 'Express',
+                'insurance': 'Sigorta',
+                'packaging': 'Paketleme',
+                'customs': 'Gümrük',
+                'warehousing': 'Depolama',
+                'pickup': 'Toplama',
+                'delivery': 'Teslimat',
+                'tracking': 'Takip'
+            };
+            return serviceMap[service] || service;
+        }
+    </script>
+</body>
+
+</html>

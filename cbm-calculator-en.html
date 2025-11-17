@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CBM Calculator - Gracelog Logistics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar py-3" role="banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-11 col-xl-3">
+            <div class="logo">
+              <a href="index-en.html">
+                <img src="images/WhatsApp Görsel 2025-10-28 saat 20.10.20_4af858e2-Photoroom.png" alt="Gracelog" style="height: 50px; width: auto;">
+              </a>
+            </div>
+          </div>
+          <div class="col-12 col-md-9 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block" style="font-size: 14px;">
+                <li><a href="index-en.html">Home</a></li>
+                <li><a href="about-en.html">About Us</a></li>
+                <li class="has-children">
+                  <a href="services-en.html">Services</a>
+                  <ul class="dropdown">
+                    <li><a href="air-freight-en.html">Air Freight</a></li>
+                    <li><a href="sea-freight-en.html">Sea Freight</a></li>
+                    <li><a href="road-transportation-en.html">Road Transportation</a></li>
+                    <li><a href="warehousing-services-en.html">Warehousing Services</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="#">Corporate</a>
+                  <ul class="dropdown">
+                    <li><a href="board-of-directors-message-en.html">Board of Directors Message</a></li>
+                    <li><a href="industry-insights-en.html">Industry Insights</a></li>
+                  </ul>
+                </li>
+                <li class="has-children active">
+                  <a href="#">Tools</a>
+                  <ul class="dropdown">
+                    <li><a href="cbm-calculator-en.html">CBM Calculator</a></li>
+                    <li><a href="quote-en.html">Get Quote</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact-en.html">Contact</a></li>
+                <li><a href="cbm-calculator.html">TR</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;">
+            <a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <div class="site-blocks-cover overlay inner-page-cover" style="position: relative; height: 60vh; overflow: hidden;" data-aos="fade">
+      <video autoplay muted loop style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: -1; object-fit: cover;">
+        <source src="Grace Logistics (4).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;"></div>
+      <div class="container" style="position: relative; z-index: 2; height: 100%;">
+        <div class="row align-items-center justify-content-center text-center" style="height: 100%;">
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
+            <h1 class="text-white font-weight-light">CBM Calculator</h1>
+            <p class="text-white">Calculate your cargo volume easily</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CBM Calculator Section -->
+    <div class="site-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+              <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">CBM (Cubic Meter) Calculator</h3>
+                <p class="mb-0 mt-2">Enter your cargo dimensions to calculate total volume</p>
+              </div>
+              <div class="card-body p-5">
+                
+                <!-- Single Box Calculation -->
+                <div class="mb-5">
+                  <h4 class="text-primary mb-4">Single Box Calculation</h4>
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <label for="length" class="form-label">Length (cm)</label>
+                      <input type="number" class="form-control" id="length" placeholder="0" min="0" step="0.1">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="width" class="form-label">Width (cm)</label>
+                      <input type="number" class="form-control" id="width" placeholder="0" min="0" step="0.1">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="height" class="form-label">Height (cm)</label>
+                      <input type="number" class="form-control" id="height" placeholder="0" min="0" step="0.1">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="weight" class="form-label">Weight (kg)</label>
+                      <input type="number" class="form-control" id="weight" placeholder="0" min="0" step="0.1">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="quantity" class="form-label">Quantity</label>
+                      <input type="number" class="form-control" id="quantity" placeholder="1" min="1" value="1">
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" onclick="calculateSingle()">Calculate</button>
+                </div>
+
+                <!-- Result Area -->
+                <div id="singleResult" class="alert alert-info" style="display: none;">
+                  <h5>Calculation Result:</h5>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p><strong>Single Box CBM:</strong> <span id="singleCBM">0</span> m³</p>
+                      <p><strong>Total CBM:</strong> <span id="totalCBM">0</span> m³</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p><strong>Total Weight:</strong> <span id="totalWeight">0</span> kg</p>
+                      <p><strong>Volumetric Weight:</strong> <span id="volumetricWeight">0</span> kg</p>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-5">
+
+                <!-- Multiple Box Calculation -->
+                <div class="mb-4">
+                  <h4 class="text-primary mb-4">Multiple Box Calculation</h4>
+                  <div id="multipleBoxes">
+                    <div class="box-item border rounded p-3 mb-3">
+                      <div class="row">
+                        <div class="col-md-2 mb-2">
+                          <label class="form-label">Length (cm)</label>
+                          <input type="number" class="form-control box-length" placeholder="0" min="0" step="0.1">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                          <label class="form-label">Width (cm)</label>
+                          <input type="number" class="form-control box-width" placeholder="0" min="0" step="0.1">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                          <label class="form-label">Height (cm)</label>
+                          <input type="number" class="form-control box-height" placeholder="0" min="0" step="0.1">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                          <label class="form-label">Weight (kg)</label>
+                          <input type="number" class="form-control box-weight" placeholder="0" min="0" step="0.1">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                          <label class="form-label">Quantity</label>
+                          <input type="number" class="form-control box-quantity" placeholder="1" min="1" value="1">
+                        </div>
+                        <div class="col-md-2 mb-2 d-flex align-items-end">
+                          <button type="button" class="btn btn-danger btn-sm" onclick="removeBox(this)">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-success me-2" onclick="addBox()">+ Add Box</button>
+                    <button type="button" class="btn btn-primary" onclick="calculateMultiple()">Calculate Total</button>
+                  </div>
+                </div>
+
+                <!-- Multiple Result Area -->
+                <div id="multipleResult" class="alert alert-success" style="display: none;">
+                  <h5>Total Result:</h5>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p><strong>Total CBM:</strong> <span id="multipleTotalCBM">0</span> m³</p>
+                      <p><strong>Total Weight:</strong> <span id="multipleTotalWeight">0</span> kg</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p><strong>Total Volumetric Weight:</strong> <span id="multipleTotalVolumetric">0</span> kg</p>
+                      <p><strong>Box Count:</strong> <span id="totalBoxCount">0</span> pieces</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Information Section -->
+        <div class="row mt-5">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">What is CBM?</h5>
+                <p class="card-text">CBM (Cubic Meter) is a unit of measurement that expresses the volume of a cargo. It is used in the logistics industry to calculate cargo costs.</p>
+                <p class="card-text"><strong>Formula:</strong> Length × Width × Height ÷ 1,000,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">Volumetric Weight</h5>
+                <p class="card-text">Volumetric weight is the theoretical weight calculated based on the volume of the cargo. Cargo companies base their pricing on whichever is higher: actual weight or volumetric weight.</p>
+                <p class="card-text"><strong>Formula:</strong> CBM × 167 (for air cargo)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="site-section bg-primary">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h2 class="mb-4 text-white">Get Quote for Your Calculated Cargo</h2>
+            <p class="text-white mb-4">After completing your CBM calculation, contact us for the most suitable cargo solution.</p>
+            <a href="quote-en.html" class="btn btn-light btn-lg">Get Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    
+  </div>
+
+  <script>
+    // Single box calculation
+    function calculateSingle() {
+      const length = parseFloat(document.getElementById('length').value) || 0;
+      const width = parseFloat(document.getElementById('width').value) || 0;
+      const height = parseFloat(document.getElementById('height').value) || 0;
+      const weight = parseFloat(document.getElementById('weight').value) || 0;
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+
+      if (length <= 0 || width <= 0 || height <= 0) {
+        alert('Please enter valid dimensions!');
+        return;
+      }
+
+      // CBM calculation (cm³ to m³)
+      const singleCBM = (length * width * height) / 1000000;
+      const totalCBM = singleCBM * quantity;
+      const totalWeight = weight * quantity;
+      const volumetricWeight = totalCBM * 167; // For air cargo
+
+      // Show results
+      document.getElementById('singleCBM').textContent = singleCBM.toFixed(4);
+      document.getElementById('totalCBM').textContent = totalCBM.toFixed(4);
+      document.getElementById('totalWeight').textContent = totalWeight.toFixed(2);
+      document.getElementById('volumetricWeight').textContent = volumetricWeight.toFixed(2);
+      document.getElementById('singleResult').style.display = 'block';
+    }
+
+    // Add new box
+    function addBox() {
+      const container = document.getElementById('multipleBoxes');
+      const boxCount = container.children.length + 1;
+      
+      const newBox = document.createElement('div');
+      newBox.className = 'box-item border rounded p-3 mb-3';
+      newBox.innerHTML = `
+        <div class="row">
+          <div class="col-md-2 mb-2">
+            <label class="form-label">Length (cm)</label>
+            <input type="number" class="form-control box-length" placeholder="0" min="0" step="0.1">
+          </div>
+          <div class="col-md-2 mb-2">
+            <label class="form-label">Width (cm)</label>
+            <input type="number" class="form-control box-width" placeholder="0" min="0" step="0.1">
+          </div>
+          <div class="col-md-2 mb-2">
+            <label class="form-label">Height (cm)</label>
+            <input type="number" class="form-control box-height" placeholder="0" min="0" step="0.1">
+          </div>
+          <div class="col-md-2 mb-2">
+            <label class="form-label">Weight (kg)</label>
+            <input type="number" class="form-control box-weight" placeholder="0" min="0" step="0.1">
+          </div>
+          <div class="col-md-2 mb-2">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control box-quantity" placeholder="1" min="1" value="1">
+          </div>
+          <div class="col-md-2 mb-2 d-flex align-items-end">
+            <button type="button" class="btn btn-danger btn-sm" onclick="removeBox(this)">Remove</button>
+          </div>
+        </div>
+      `;
+      
+      container.appendChild(newBox);
+    }
+
+    // Remove box
+    function removeBox(button) {
+      const container = document.getElementById('multipleBoxes');
+      if (container.children.length > 1) {
+        button.closest('.box-item').remove();
+      } else {
+        alert('At least one box is required!');
+      }
+    }
+
+    // Multiple box calculation
+    function calculateMultiple() {
+      const boxes = document.querySelectorAll('.box-item');
+      let totalCBM = 0;
+      let totalWeight = 0;
+      let totalBoxCount = 0;
+
+      boxes.forEach(box => {
+        const length = parseFloat(box.querySelector('.box-length').value) || 0;
+        const width = parseFloat(box.querySelector('.box-width').value) || 0;
+        const height = parseFloat(box.querySelector('.box-height').value) || 0;
+        const weight = parseFloat(box.querySelector('.box-weight').value) || 0;
+        const quantity = parseInt(box.querySelector('.box-quantity').value) || 1;
+
+        if (length > 0 && width > 0 && height > 0) {
+          const boxCBM = (length * width * height) / 1000000;
+          totalCBM += boxCBM * quantity;
+          totalWeight += weight * quantity;
+          totalBoxCount += quantity;
+        }
+      });
+
+      const totalVolumetricWeight = totalCBM * 167;
+
+      // Show results
+      document.getElementById('multipleTotalCBM').textContent = totalCBM.toFixed(4);
+      document.getElementById('multipleTotalWeight').textContent = totalWeight.toFixed(2);
+      document.getElementById('multipleTotalVolumetric').textContent = totalVolumetricWeight.toFixed(2);
+      document.getElementById('totalBoxCount').textContent = totalBoxCount;
+      document.getElementById('multipleResult').style.display = 'block';
+    }
+  </script>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

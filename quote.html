@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <title>Teklif Al - Gracelog Lojistik</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900|Display+Playfair:200,300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-11 col-xl-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="images/WhatsApp Görsel 2025-10-28 saat 20.10.20_4af858e2-Photoroom.png" alt="Gracelog" style="height: 50px; width: auto;">
+              </a>
+            </div>
+          </div>
+          <div class="col-12 col-md-9 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block" style="font-size: 14px;">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li class="has-children">
+                  <a href="services.html">Hizmetler</a>
+                  <ul class="dropdown">
+                    <li><a href="havayolu-taşımacılığı.html">Hava Yolu Taşımacılığı</a></li>
+                    <li><a href="karayolu-taşımacılığı.html">Karayolu Taşımacılığı</a></li>
+                    <li><a href="denizyolu-taşımacılığı.html">Denizyolu Taşımacılığı</a></li>
+                    <li><a href="depolama-hizmetleri.html">Depolama Hizmetleri</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="#">Kurumsal</a>
+                  <ul class="dropdown">
+                    <li><a href="yonetim-kurulu-mesaji.html">Yönetim Kurulumuzun Mesajı</a></li>
+                    <li><a href="sektorel-bilgiler.html">Sektörel Bilgiler</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="#">Araçlar</a>
+                  <ul class="dropdown">
+                    <li><a href="cbm-calculator.html">CBM Hesaplama</a></li>
+                    <li><a href="quote.html">Teklif Al</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact.html">İletişim</a></li>
+                <li><a href="quote-en.html">EN</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#"
+              class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+
+      </div>
+  </div>
+
+  </header>
+
+    <!-- Quote Form Section -->
+    <div class="site-section" style="background: #ffffff; padding: 80px 0;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-8">
+            <div style="text-align: center; margin-bottom: 50px;">
+              <h1 style="color: #667eea; font-size: 2.5rem; font-weight: 300; margin-bottom: 20px;">Need a quotation?</h1>
+              <p style="color: #6c757d; font-size: 1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                Dear Customers, if you wish to receive a quotation, we kindly ask you to fill in below form. Once the form has been duly filled and submitted, the rates will be quoted to you.
+              </p>
+            </div>
+
+            <form id="quoteForm" style="max-width: 800px; margin: 0 auto; background: #667eea; padding: 40px; border-radius: 10px;">
+              
+              <!-- Kişisel Bilgiler -->
+              <div style="margin-bottom: 50px;">
+                <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 0.5px;">Kişisel Bilgiler</h5>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="firstName" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">İSİM (NAME) *</label>
+                  <input type="text" id="firstName" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="email" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">EMAIL *</label>
+                  <input type="email" id="email" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="phone" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">TELEFON (PHONE) *</label>
+                  <input type="tel" id="phone" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="subject" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">KONU (SUBJECT)</label>
+                  <input type="text" id="subject" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+              </div>
+
+              <!-- Gönderi Bilgisi -->
+              <div style="margin-bottom: 50px;">
+                <h5 style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 0.5px;">Gönderi Bilgisi</h5>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="origin" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">NEREDEN (FROM) *</label>
+                  <input type="text" id="origin" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="destination" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">NEREYE (TO) *</label>
+                  <input type="text" id="destination" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; transition: all 0.3s; color: #333;">
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="serviceType" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">TAŞIMA YOLU (TRANSPORTATION METHOD) *</label>
+                  <select id="serviceType" required style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; cursor: pointer; color: #333;">
+                    <option value="">Seçiniz</option>
+                    <option value="air">Havayolu</option>
+                    <option value="sea">Denizyolu</option>
+                    <option value="road">Karayolu</option>
+                  </select>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                  <label for="incoterms" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">INCOTERMS</label>
+                  <select id="incoterms" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; cursor: pointer; color: #333;">
+                    <option value="">NONE</option>
+                    <option value="EXW">EXW</option>
+                    <option value="FCA">FCA</option>
+                    <option value="FAS">FAS</option>
+                    <option value="FOB">FOB</option>
+                    <option value="CPT">CPT</option>
+                    <option value="CFR">CFR</option>
+                    <option value="CIF">CIF</option>
+                    <option value="CIP">CIP</option>
+                    <option value="DAP">DAP</option>
+                    <option value="DPU">DPU</option>
+                    <option value="DDP">DDP</option>
+                  </select>
+                </div>
+
+                <!-- Dimensions -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px;">
+                  <div>
+                    <label for="width" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">EN (CM)</label>
+                    <input type="number" id="width" min="0" step="0.1" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; color: #333;">
+                  </div>
+                  <div>
+                    <label for="length" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">BOY (CM)</label>
+                    <input type="number" id="length" min="0" step="0.1" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; color: #333;">
+                  </div>
+                  <div>
+                    <label for="height" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">YÜKSEKLIK (CM)</label>
+                    <input type="number" id="height" min="0" step="0.1" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; color: #333;">
+                  </div>
+                  <div>
+                    <label for="totalWeight" style="display: block; color: #ffffff; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">AĞIRLIK (KG) *</label>
+                    <input type="number" id="totalWeight" required min="0" step="0.1" style="width: 100%; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 12px; font-size: 1rem; background: rgba(255,255,255,0.95); outline: none; color: #333;">
+                  </div>
+                </div>
+
+                <!-- Checkboxes -->
+                <div style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="fragile" style="margin-right: 8px; width: 18px; height: 18px; accent-color: #ffffff;">
+                    <label for="fragile" style="color: #ffffff; font-size: 0.95rem; cursor: pointer; margin: 0;">Kırılgan (Fragile)</label>
+                  </div>
+                  <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="express" style="margin-right: 8px; width: 18px; height: 18px; accent-color: #ffffff;">
+                    <label for="express" style="color: #ffffff; font-size: 0.95rem; cursor: pointer; margin: 0;">Express</label>
+                  </div>
+                  <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="insurance" style="margin-right: 8px; width: 18px; height: 18px; accent-color: #ffffff;">
+                    <label for="insurance" style="color: #ffffff; font-size: 0.95rem; cursor: pointer; margin: 0;">Sigorta (Insurance)</label>
+                  </div>
+                  <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="packaging" style="margin-right: 8px; width: 18px; height: 18px; accent-color: #ffffff;">
+                    <label for="packaging" style="color: #ffffff; font-size: 0.95rem; cursor: pointer; margin: 0;">Paketleme (Packaging)</label>
+                  </div>
+                </div>
+              </div>
+
+              <div style="text-align: center; margin-top: 50px;">
+                <button type="submit" style="background: #ffffff; color: #667eea; border: none; padding: 15px 60px; font-size: 1rem; font-weight: 500; border-radius: 5px; cursor: pointer; transition: all 0.3s;">Gönder</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="successModalLabel">Teklif Talebiniz Alındı!</h5>
+            <button type="button" class="close text-white" onclick="closeSuccessModal()" aria-label="Close" style="opacity: 1; font-size: 1.5rem; cursor: pointer; background: none; border: none; padding: 0; margin: 0;">
+              <span aria-hidden="true" style="font-size: 2rem;">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Teklif talebiniz başarıyla gönderildi. Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+            <p><strong>Referans No:</strong> <span id="referenceNo" style="font-size: 1.1rem; color: #28a745; font-weight: bold;"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="closeModalBtn" onclick="closeSuccessModal()" style="cursor: pointer; padding: 10px 30px; font-size: 1rem;">Tamam</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+  <!-- Grace Logistics Bilgi Bölümü -->
+  <div class="site-section bg-light" style="padding: 60px 0; background-color: #f8f9fa;">
+    <div class="container">
+      <div class="row">
+        <!-- Grace Logistics -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Grace Logistics</h2>
+          <p style="color: #6c757d; line-height: 1.8; font-size: 0.95rem;">
+            Grace Logistics, İstanbul merkezli, güçlü ve güvenilir bir uluslararası lojistik firmasıdır. 15 yıllık deneyime sahip olan şirket, tüm kadrosunu profesyonellerden oluşturmuştur. Hızla değişen ve gelişen lojistik ihtiyaçlarına cevap verebilecek alt yapı ve ulaşım ağlarını sürekli olarak genişletmektedir.
+          </p>
+        </div>
+
+        <!-- Servislerimiz -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Servislerimiz</h2>
+          <ul class="list-unstyled" style="color: #6c757d; line-height: 2.2;">
+            <li><a href="havayolu-taşımacılığı.html" style="color: #6c757d; text-decoration: none;">Havayolu Taşımacılığı</a></li>
+            <li><a href="denizyolu-taşımacılığı.html" style="color: #6c757d; text-decoration: none;">Denizyolu Taşımacılığı</a></li>
+            <li><a href="karayolu-taşımacılığı.html" style="color: #6c757d; text-decoration: none;">Karayolu Taşımacılığı</a></li>
+            <li><a href="depolama-hizmetleri.html" style="color: #6c757d; text-decoration: none;">Depolama Hizmetleri</a></li>
+          </ul>
+        </div>
+
+        <!-- Üyeliklerimiz -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Üyeliklerimiz</h2>
+          <div class="mb-3">
+            <div style="border: 2px solid #dee2e6; padding: 15px; background: #fff; border-radius: 5px; margin-bottom: 15px; text-align: center;">
+              <img src="images/GLA-213x300.jpg" alt="GLA Certificate" style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 5px;">
+            </div>
+            <div style="text-align: center;">
+              <img src="images/TioLogo-150x150-1.png" alt="TİO Logo" style="max-width: 120px; height: auto;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Merkez Ofisimiz -->
+        <div class="col-md-3">
+          <h2 class="mb-4" style="color: #5c7287; font-weight: 700; font-size: 1.5rem;">Merkez Ofisimiz</h2>
+          <div style="color: #6c757d; line-height: 1.8; font-size: 0.95rem; margin-bottom: 20px;">
+            <p style="margin-bottom: 10px;">
+              <strong>Adres:</strong><br>
+              Collet Avcılar B2 Blok No 85 Firuzkoy Mah<br>
+              Avcılar/Istanbul/TÜRKİYE
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>Telefon:</strong><br>
+              <a href="tel:+902128900250" style="color: #6c757d; text-decoration: none;">+90 212 890 02 50</a><br>
+              <a href="tel:+905447923408" style="color: #6c757d; text-decoration: none;">+90 544 792 34 08</a>
+            </p>
+            <p style="margin-bottom: 10px;">
+              <strong>E-posta:</strong><br>
+              <a href="mailto:operation@gracelogistics.com.tr" style="color: #6c757d; text-decoration: none;">operation@gracelogistics.com.tr</a><br>
+              <a href="mailto:pricing@gracelogistics.com.tr" style="color: #6c757d; text-decoration: none;">pricing@gracelogistics.com.tr</a>
+            </p>
+          </div>
+          <div style="width: 100%; height: 200px; border: 1px solid #dee2e6; border-radius: 5px; overflow: hidden;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.1234567890!2d28.7123456!3d41.0123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzQ0LjQiTiAyOMKwNDInNDQuNCJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str" 
+              width="100%" 
+              height="200" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  </div>
+
+  <style>
+    /* Input focus styles */
+    #quoteForm input:focus,
+    #quoteForm select:focus {
+      border-color: #ffffff !important;
+      border-width: 2px !important;
+      background: #ffffff !important;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    /* Button hover effect */
+    #quoteForm button[type="submit"]:hover {
+      background: #f0f0f0 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+    }
+
+    #quoteForm button[type="submit"] {
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .site-section {
+        padding: 40px 0 !important;
+      }
+      
+      h1 {
+        font-size: 2rem !important;
+      }
+      
+      #quoteForm > div[style*="grid"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    
+    /* Modal butonları için stil düzeltmeleri */
+    #successModal .modal-footer .btn,
+    #successModal .close {
+      cursor: pointer !important;
+      z-index: 1051 !important;
+      position: relative !important;
+    }
+    
+    #successModal .modal-footer .btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    
+    #successModal .close:hover {
+      opacity: 0.8;
+    }
+  </style>
+
+  <script>
+    // Form gönderimi
+    document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Form validasyonu
+      if (!this.checkValidity()) {
+        return;
+      }
+
+      // Parse origin and destination
+      const originValue = document.getElementById('origin').value.trim();
+      const destValue = document.getElementById('destination').value.trim();
+      
+      if (!originValue || !destValue) {
+        alert('Lütfen nereden ve nereye bilgilerini girin.');
+        return;
+      }
+      
+      const originParts = originValue.split(',').map(s => s.trim()).filter(s => s);
+      const destParts = destValue.split(',').map(s => s.trim()).filter(s => s);
+      
+      // Calculate CBM from dimensions
+      const width = parseFloat(document.getElementById('width').value) || 0;
+      const length = parseFloat(document.getElementById('length').value) || 0;
+      const height = parseFloat(document.getElementById('height').value) || 0;
+      const calculatedCBM = (width * length * height) / 1000000; // Convert cm³ to m³
+
+      // Form verilerini topla
+      const firstNameValue = document.getElementById('firstName').value.trim();
+      const nameParts = firstNameValue.split(' ').filter(s => s);
+      const firstName = nameParts[0] || firstNameValue;
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Parse origin and destination - if only one part, use it as both city and country
+      const originCity = originParts[0] || '';
+      const originCountry = originParts.length > 1 ? originParts[originParts.length - 1] : originCity;
+      
+      const destCity = destParts[0] || '';
+      const destCountry = destParts.length > 1 ? destParts[destParts.length - 1] : destCity;
+
+      const formData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        company: document.getElementById('subject').value.trim() || null,
+        serviceType: document.getElementById('serviceType').value,
+        incoterms: document.getElementById('incoterms').value || null,
+        originCountry: originCountry,
+        originCity: originCity,
+        destCountry: destCountry,
+        destCity: destCity,
+        totalWeight: parseFloat(document.getElementById('totalWeight').value) || 0,
+        totalCBM: calculatedCBM > 0 ? calculatedCBM : null,
+        additionalServices: {
+          fragile: document.getElementById('fragile').checked,
+          express: document.getElementById('express').checked,
+          insurance: document.getElementById('insurance').checked,
+          packaging: document.getElementById('packaging').checked
+        },
+        notes: null,
+        language: 'tr'
+      };
+
+      // Validation
+      if (!formData.firstName || !formData.email || !formData.serviceType || !formData.originCity || !formData.destCity || !formData.totalWeight) {
+        alert('Lütfen tüm zorunlu alanları doldurun: İsim, E-posta, Taşıma Yolu, Nereden, Nereye ve Ağırlık.');
+        return;
+      }
+      
+      // Ensure lastName and phone are strings (not undefined)
+      if (!formData.lastName) formData.lastName = '';
+      if (!formData.phone) formData.phone = '';
+      
+      // Debug: Log form data
+      console.log('Form data being sent:', JSON.stringify(formData, null, 2));
+
+      try {
+        // API'ye gönder
+        const response = await fetch('/api/quotes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        let result;
+        try {
+          result = await response.json();
+        } catch (jsonError) {
+          console.error('JSON parse error:', jsonError);
+          const text = await response.text();
+          console.error('Response text:', text);
+          alert('Sunucudan geçersiz yanıt alındı. Lütfen konsolu kontrol edin.');
+          return;
+        }
+
+        if (response.ok && result.success) {
+          // Referans numarasını göster
+          document.getElementById('referenceNo').textContent = result.referenceNo;
+
+          // Formu temizle
+          this.reset();
+          this.classList.remove('was-validated');
+
+          // Başarı modalını göster (Bootstrap 4)
+          // jQuery ve Bootstrap'ın yüklendiğinden emin ol
+          function showSuccessModal() {
+            if (typeof jQuery !== 'undefined' && jQuery.fn.modal) {
+              // Modal'ı göster
+              jQuery('#successModal').modal('show');
+            } else {
+              // jQuery/Bootstrap yoksa basit alert göster
+              alert('Teklif talebiniz başarıyla gönderildi!\nReferans No: ' + result.referenceNo);
+            }
+          }
+          
+          // jQuery yüklü mü kontrol et
+          if (typeof jQuery !== 'undefined') {
+            setTimeout(showSuccessModal, 200);
+          } else {
+            // jQuery yüklenene kadar bekle
+            var checkJQuery = setInterval(function() {
+              if (typeof jQuery !== 'undefined') {
+                clearInterval(checkJQuery);
+                setTimeout(showSuccessModal, 200);
+              }
+            }, 100);
+            
+            // 2 saniye sonra hala yüklenmediyse alert göster
+            setTimeout(function() {
+              clearInterval(checkJQuery);
+              if (typeof jQuery === 'undefined') {
+                alert('Teklif talebiniz başarıyla gönderildi!\nReferans No: ' + result.referenceNo);
+              }
+            }, 2000);
+          }
+        } else {
+          // Hata mesajını göster
+          console.error('API Error:', result);
+          
+          let errorMsg = 'Teklif gönderilirken bir hata oluştu.';
+          if (result.message) {
+            errorMsg = result.message;
+          } else if (result.error) {
+            errorMsg = result.error;
+          }
+          
+          // Eğer validation hataları varsa göster
+          if (result.errors && result.errors.length > 0) {
+            errorMsg += '\n\nHatalar:\n' + result.errors.join('\n');
+          }
+          
+          // Eğer eksik alanlar varsa göster
+          if (result.missingFields && result.missingFields.length > 0) {
+            errorMsg += '\n\nEksik alanlar: ' + result.missingFields.join(', ');
+          }
+          
+          // Development modunda daha fazla detay göster
+          if (result.errorDetails) {
+            console.error('Error Details:', result.errorDetails);
+          }
+          
+          alert('Hata: ' + errorMsg);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Bağlantı hatası. Lütfen sunucunun çalıştığından emin olun ve tekrar deneyin.');
+      }
+    });
+
+  </script>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Modal kapatma için event listener (jQuery yüklendikten sonra)
+    (function() {
+      function initModalHandlers() {
+        if (typeof jQuery === 'undefined') {
+          setTimeout(initModalHandlers, 100);
+          return;
+        }
+        
+        jQuery(document).ready(function($) {
+          // Modal kapandıktan sonra backdrop'u temizle
+          $('#successModal').on('hidden.bs.modal', function() {
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            $('body').css({
+              'padding-right': '',
+              'overflow': ''
+            });
+          });
+
+          // ESC tuşu ile kapatma
+          $(document).on('keydown.modal-escape', function(e) {
+            if ((e.key === 'Escape' || e.keyCode === 27) && $('#successModal').hasClass('show')) {
+              closeSuccessModal();
+            }
+          });
+        });
+      }
+      
+      // Sayfa yüklendiğinde başlat
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initModalHandlers);
+      } else {
+        initModalHandlers();
+      }
+    })();
+    
+    // Modal kapatma fonksiyonu
+    function closeSuccessModal() {
+      if (typeof jQuery !== 'undefined' && jQuery.fn.modal) {
+        jQuery('#successModal').modal('hide');
+        // Backdrop'u temizle
+        setTimeout(function() {
+          jQuery('.modal-backdrop').remove();
+          jQuery('body').removeClass('modal-open');
+          jQuery('body').css({
+            'padding-right': '',
+            'overflow': ''
+          });
+        }, 300);
+      } else {
+        // jQuery yoksa modal'ı gizle
+        var modal = document.getElementById('successModal');
+        if (modal) {
+          modal.style.display = 'none';
+          modal.classList.remove('show');
+          document.body.classList.remove('modal-open');
+          var backdrop = document.querySelector('.modal-backdrop');
+          if (backdrop) backdrop.remove();
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
